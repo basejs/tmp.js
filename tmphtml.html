@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试模板</title>
+</head>
+<body>
+	<div id="tmpdom"></div>
+
+	<script type="text/template" id="tmp-test">
+		<ul>
+			{{ score>80 ? level.excellent : level.failed }}{{name}}
+			{@each country as item, i}
+			<li>
+				国家名{{item}}
+				{@if true}
+					{{item[0]}}{{="<p>wwwww</p>"}}{{="%3Cp%3Ewwwww%3C/p%3E"}}
+				{@/if}
+				<br>
+				{@if i === 1}
+					{@each city as item2, j}
+						<a href="#">第个{{j}}城市{{item2}}</a><br>
+					{@/each}
+				{@else}
+				<a href="javascript:;">没有循环</a>
+				{@/if}
+			</li>
+			{@/each}
+		</ul>
+	</script>
+
+	
+	<script type="text/javascript" src="tmp.js"></script>
+	<script type="text/javascript">
+		var html = document.getElementById('tmp-test').innerHTML;
+		document.getElementById('tmpdom').innerHTML = tmp(html).render({country:['中国','美国','俄罗斯',['英国','法国','德国']], city: ["164","203"], name: '张飞', level:{excellent: '80-100', failed: '0-80'}, score: 68});
+	
+	</script>
+</body>
+</html>
