@@ -70,7 +70,7 @@ tmp.js模板语法参照juicer.js设计，但是效率却比juicer.js提升1倍�
 项目中有一个tmphtml.html里边摘取了目前市面上比较好的几个模板引擎做了一个效率对比。
 chrome的环境，i5的cpu+12g内存，10次两层each嵌套，每次循环1000+数据测试结果如下(随机取样不偏离事实)：
 
-#####第一次
+第一次结果
 +   tmpstart juicer: 94.398ms
 +   tmpstart artemplate: 76.437ms
 +   tmpstart tmp: 60.097ms
@@ -78,21 +78,21 @@ chrome的环境，i5的cpu+12g内存，10次两层each嵌套，每次循环1000+
 
 ---------------------------------------
 
-####第二次
-tmpstart juicer: 95.132ms
-tmpstart artemplate: 89.558ms
-tmpstart tmp: 69.876ms
-tmpstart doT: 58.088ms
+第二次结果
++   tmpstart juicer: 95.132ms
++   tmpstart artemplate: 89.558ms
++   tmpstart tmp: 69.876ms
++   tmpstart doT: 58.088ms
 
-####第三次
-tmpstart juicer: 138.184ms
+---------------------------------------
 
-tmpstart artemplate: 92.126ms
+第三次结果
++   tmpstart juicer: 138.184ms
++   tmpstart artemplate: 92.126ms
++   tmpstart tmp: 59.014ms
++   tmpstart doT: 48.727ms
 
-tmpstart tmp: 59.014ms
-
-tmpstart doT: 48.727ms
-
+---------------------------------------
 
 最优的是dot.js，其次是tmp.js，再次是arttemplate，性能最差的是juicer，更详细的情况，大家不妨下载我的tmphtml.html文件自行测试看看结果。
 
