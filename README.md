@@ -71,10 +71,10 @@ tmp.js模板语法参照juicer.js设计，但是效率却比juicer.js提升1倍�
 chrome的环境，i5的cpu+12g内存，10次两层each嵌套，每次循环1000+数据测试结果如下(随机取样不偏离事实)：
 
 #####第一次
-+	tmpstart juicer: 94.398ms
-+	tmpstart artemplate: 76.437ms
-+	tmpstart tmp: 60.097ms
-+	tmpstart doT: 46.407ms
++   tmpstart juicer: 94.398ms
++   tmpstart artemplate: 76.437ms
++   tmpstart tmp: 60.097ms
++   tmpstart doT: 46.407ms
 
 ---------------------------------------
 
