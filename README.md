@@ -1,4 +1,4 @@
-## tmp.js 一个轻量的优雅的js模板库
+## tmp.js 一个轻量的优雅的js模板引擎
 tmp.js模板语法参照juicer.js设计，但是效率却比juicer.js提升1倍不止。
 
 ####用法演示
