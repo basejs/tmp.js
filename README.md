@@ -6,26 +6,26 @@ tmp.js模板语法参照juicer.js设计，但是效率却比juicer.js提升1倍�
 <div id="tmpdom"></div>
 
 <script type="text/template" id="tmp-test">
-	<ul>
-		{{ score>80 ? level.excellent : level.failed }}{{name}}
-		{@each country as item, i}
-		<li>
-			国家名{{item}}
-			{@if Object.prototype.toString.call(item) === '[object Array]'}
-				{{item[0]}}{{name}}
-			{@/if}
-			<br>
-			{@if i === 1}
-				{@each city as item2, j}
-					<a href="#">第个{{j}}城市{{item2}}</a><br>
-				{@/each}
-			{@else}
-			<a href="javascript:;">没有循环</a>
-			{@/if}
-		</li>
-		{@/each}
-  </ul>
-</script>
+		<ul>
+			{{ score>80 ? level.excellent : level.failed }}{{name}}
+			{@each country as item, i}
+			<li>
+				国家名{{item}}
+				{@if true}
+					{{item[0]}}{{name}}
+				{@/if}
+				<br>
+				{@if i === 1}
+					{@each city as item2, j}
+						<a href="#">第个{{j}}城市{{item2}}</a><br>
+					{@/each}
+				{@else}
+				<a href="javascript:;">没有循环</a>
+				{@/if}
+			</li>
+			{@/each}
+		</ul>
+	</script>
 ```
 
 ```javascript
