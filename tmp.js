@@ -7,9 +7,8 @@
  */
 ;(function(exports) {
 	var tmp = function(tmphtml,data) {
-
 		//去掉注释
-		tmphtml = tmphtml.replace(/<!--.+-->/g,'');
+		tmphtml = tmphtml.replace(/<!--[\s\S]*-->/g,'');
 		tmp.tmphtml = tmphtml;
 
 		if(Object.prototype.toString.call(data) === '[object Object]'){
@@ -78,7 +77,7 @@
 			}
 		}).join('');
 		newstr += '})();return tmpstr;';
-		// console.log(newstr);
+		//console.log(newstr);
 		return new Function(newstr)();
 	};
 
