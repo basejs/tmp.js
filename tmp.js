@@ -34,11 +34,26 @@
 					return '}else{';
 
 				case /^{@each[^{}]*}$/.test(item):
-					//each返回for循环，尽量不要用t做索引
-					return item.replace(/{@each\s+(\w+)\s+as\s+(\w+)\s*(?:,\s*(\w+)\s*)?}/,function($1,$2,$3,$4){
-						//console.log($1+'-----'+$2+'-----'+$3+'-----'+$4);
-						return '(function(){var xps=0, '+ $4 +';for(; xps<'+ $2 +'.length; xps++){'+ $3 +'=' + $2 +'[xps];'+ $4 +'=xps;';
-					});
+					//each做数组或对象循环，尽量不要用xps做索引
+
+					//数组处理
+					if(item.indexOf(' as ') != -1){
+						return item.replace(/{@each\s+([^}]+)\s+as\s+(\w+)(?:,\s*(\w+)\s*)?}/,function($1,$2,$3,$4){
+							//console.log($1+'-----'+$2+'-----'+$3+'-----'+$4);
+							return '(function(){var xps=0, '+ $4 +', '+ $3 +';for(; xps<'+ $2 +'.length; xps++){'+ $3 +'=' + $2 +'[xps];'+ $4 +'=xps;';
+						});
+					}
+					//对象处理
+					else if(item.indexOf(' in ') != -1){
+						return item.replace(/{@each\s+([^}]+)\s+in\s+(\w+)(?:,\s*(\w+)\s*)?}/,function($1,$2,$3,$4){
+							//console.log($1+'-----'+$2+'-----'+$3+'-----'+$4);
+							return '(function(){var xps, '+ $4 +', '+ $3 +';for(xps in ' + $2 +'){'+ $3 +'=' + $2 +'[xps];'+ $4 +'=xps;';
+						});
+					}
+					else{
+						return item;
+					}
+					break;
 				case /^{@if[^{}]*}$/.test(item):
 					//if直接返回条件
 					return item.replace(/{@if\s*\(?([^{}()]+)\)?\s*}/,'if($1){');
@@ -60,7 +75,7 @@
 			}
 		}).join('');
 		newstr += '})();return tmpstr;';
-		//console.log(newstr);
+		// console.log(newstr);
 		return new Function(newstr)();
 	};
 

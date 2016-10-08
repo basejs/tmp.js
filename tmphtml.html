@@ -20,6 +20,17 @@
 	<div id="tmpdom4"></div>
 
 	<script type="text/template" id="tmp-test">
+		{@each [1,2] as item}
+			<div>
+				{{item}}
+			</div>
+		{@/each}
+		{@each level in val, key}
+			<div>
+				{{key}}===={{val}}
+			</div>
+		{@/each}
+		
 		<ul>
 			{{ score>80 ? level.excellent : level.failed }}{{name}}
 			{@each country as item, i}
