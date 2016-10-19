@@ -73,7 +73,7 @@
 					}
 					return 'tmpstr+=('+item+');';
 				default:
-					return 'tmpstr+="' + item.replace(/\n\s+/g,'\\n').replace(/\"/g,'\\"') + '";';
+					return 'tmpstr+="' + item.replace(/[\n\r]\s*/g,'\\n').replace(/\"/g,'\\"') + '";';
 			}
 		}).join('');
 		newstr += '})();return tmpstr;';
