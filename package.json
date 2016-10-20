@@ -1,0 +1,23 @@
+{
+  "name": "tmpjs",
+  "version": "1.0.0",
+  "description": "tmp.js模板语法参照juicer.js设计，但是效率却比juicer.js提升1倍不止。",
+  "main": "tmp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basejs/tmp.git"
+  },
+  "keywords": [
+    "html",
+    "template"
+  ],
+  "author": "zhuqiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basejs/tmp/issues"
+  },
+  "homepage": "https://github.com/basejs/tmp#readme"
+}
