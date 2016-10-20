@@ -8,7 +8,7 @@
 ;(function(exports) {
 	var tmp = function(tmphtml,data) {
 		//去掉注释
-		tmphtml = tmphtml.replace(/<!--[\s\S]*-->/g,'');
+		tmphtml = tmphtml.replace(/<!--[\s\S]*?-->/g,'');
 		tmp.tmphtml = tmphtml;
 
 		if(Object.prototype.toString.call(data) === '[object Object]'){
